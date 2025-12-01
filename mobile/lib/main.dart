@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'core_logic.dart';
+import 'version_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -110,8 +111,9 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.info_outline),
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Version History coming soon')),
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const VersionScreen()),
               );
             },
           ),
