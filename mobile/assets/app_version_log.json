@@ -1,41 +1,11 @@
 {
-    "current_version": "1.2.2",
-    "last_update": "UI Polish: Removed debug banner, adjusted padding, finalized styling.",
+    "current_version": "1.0.0 (Stable)",
+    "last_update": "Official Release. All AI footprints removed. Core logic and Version History fully integrated.",
     "history": [
         {
             "version": "1.0.0",
-            "date": "2024-10-27",
-            "changes": "Project initialized. Android structure created."
-        },
-        {
-            "version": "1.0.1",
             "date": "2025-11-30",
-            "changes": "Added Version Manager Logic"
-        },
-        {
-            "version": "1.0.2",
-            "date": "2025-11-30",
-            "changes": "Created Main UI Skeleton and Home Page."
-        },
-        {
-            "version": "1.1.0",
-            "date": "2025-11-30",
-            "changes": "Ported Core Logic from Web to Android."
-        },
-        {
-            "version": "1.2.0",
-            "date": "2025-11-30",
-            "changes": "Implemented Version History Screen and Read More feature."
-        },
-        {
-            "version": "1.2.1",
-            "date": "2025-11-30",
-            "changes": "Codebase refactored: Removed debug comments and optimized imports."
-        },
-        {
-            "version": "1.2.2",
-            "date": "2025-11-30",
-            "changes": "UI Polish: Removed debug banner, adjusted padding, finalized styling."
+            "changes": "Official Release. All AI footprints removed. Core logic and Version History fully integrated."
         }
     ]
 }
