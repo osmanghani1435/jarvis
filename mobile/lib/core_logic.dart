@@ -1,10 +1,9 @@
-import 'dart:convert';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CoreLogic {
-  static const String _textModel = 'gemini-1.5-flash'; // Updated to available model
-  
+  static const String _textModel = 'gemini-1.5-flash';
+
   // API Key Management
   Future<String?> getApiKey() async {
     final prefs = await SharedPreferences.getInstance();
@@ -43,22 +42,23 @@ CREATOR:
   }
 
   // Main Processor
-  Future<String> processUserMessage(String message, {String language = 'en'}) async {
+  Future<String> processUserMessage(
+    String message, {
+    String language = 'en',
+  }) async {
     final apiKey = await getApiKey();
     if (apiKey == null || apiKey.isEmpty) {
-      return language == 'id' 
-          ? "Neural Link Terputus. Silakan konfigurasi Kunci API." 
+      return language == 'id'
+          ? "Neural Link Terputus. Silakan konfigurasi Kunci API."
           : "Neural Link Disconnected. Please configure API Key.";
     }
 
     try {
-      final model = GenerativeModel(
-        model: _textModel,
-        apiKey: apiKey,
-      );
+      final model = GenerativeModel(model: _textModel, apiKey: apiKey);
 
       final meta = getAppMetadata(language);
-      final prompt = '''
+      final prompt =
+          '''
 $meta
 USER REQUEST: $message
 

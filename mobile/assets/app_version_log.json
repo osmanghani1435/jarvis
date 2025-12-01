@@ -1,6 +1,6 @@
 {
-    "current_version": "1.2.0",
-    "last_update": "Implemented Version History Screen and Read More feature.",
+    "current_version": "1.2.1",
+    "last_update": "Codebase refactored: Removed debug comments and optimized imports.",
     "history": [
         {
             "version": "1.0.0",
@@ -26,6 +26,11 @@
             "version": "1.2.0",
             "date": "2025-11-30",
             "changes": "Implemented Version History Screen and Read More feature."
+        },
+        {
+            "version": "1.2.1",
+            "date": "2025-11-30",
+            "changes": "Codebase refactored: Removed debug comments and optimized imports."
         }
     ]
 }
