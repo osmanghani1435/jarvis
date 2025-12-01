@@ -1,11 +1,16 @@
 {
-    "current_version": "1.0.0",
-    "last_update": "Initial Setup",
+    "current_version": "1.0.1",
+    "last_update": "Added Version Manager Logic",
     "history": [
         {
             "version": "1.0.0",
             "date": "2024-10-27",
             "changes": "Project initialized. Android structure created."
+        },
+        {
+            "version": "1.0.1",
+            "date": "2025-11-30",
+            "changes": "Added Version Manager Logic"
         }
     ]
 }
