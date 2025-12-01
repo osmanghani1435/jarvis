@@ -39,7 +39,6 @@ class _VersionScreenState extends State<VersionScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Current Version - Big Text
                   Center(
                     child: Text(
                       'Version ${_versionManager.getLatestUpdate()}',
@@ -51,7 +50,6 @@ class _VersionScreenState extends State<VersionScreen> {
                   ),
                   const SizedBox(height: 20),
                   
-                  // Last Update Description
                   Card(
                     elevation: 2,
                     child: Padding(
@@ -76,7 +74,6 @@ class _VersionScreenState extends State<VersionScreen> {
                   ),
                   const SizedBox(height: 20),
 
-                  // Read More Button
                   Center(
                     child: ElevatedButton.icon(
                       onPressed: () {
@@ -90,7 +87,6 @@ class _VersionScreenState extends State<VersionScreen> {
                   ),
                   const SizedBox(height: 20),
 
-                  // Full History List (Expandable)
                   if (_showFullHistory) ...[
                     Text(
                       'Full Version History',
@@ -101,29 +97,33 @@ class _VersionScreenState extends State<VersionScreen> {
                     const SizedBox(height: 10),
                     ..._versionManager.getAllHistory().map((entry) {
                       return Card(
-                        margin: const EdgeInsets.only(bottom: 12),
-                        child: ListTile(
-                          leading: const Icon(Icons.history, color: Colors.blue),
-                          title: Text(
-                            'Version ${entry['version'] ?? 'Unknown'}',
-                            style: const TextStyle(fontWeight: FontWeight.bold),
+                        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+                        elevation: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: ListTile(
+                            leading: const Icon(Icons.history, color: Colors.blue),
+                            title: Text(
+                              'Version ${entry['version'] ?? 'Unknown'}',
+                              style: const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(height: 4),
+                                Text(
+                                  'Date: ${entry['date'] ?? 'Unknown'}',
+                                  style: TextStyle(color: Colors.grey[600]),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  entry['changes'] ?? 'No description',
+                                  style: const TextStyle(fontSize: 14),
+                                ),
+                              ],
+                            ),
+                            isThreeLine: true,
                           ),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(height: 4),
-                              Text(
-                                'Date: ${entry['date'] ?? 'Unknown'}',
-                                style: TextStyle(color: Colors.grey[600]),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                entry['changes'] ?? 'No description',
-                                style: const TextStyle(fontSize: 14),
-                              ),
-                            ],
-                          ),
-                          isThreeLine: true,
                         ),
                       );
                     }).toList(),

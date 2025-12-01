@@ -1,6 +1,6 @@
 {
-    "current_version": "1.2.1",
-    "last_update": "Codebase refactored: Removed debug comments and optimized imports.",
+    "current_version": "1.2.2",
+    "last_update": "UI Polish: Removed debug banner, adjusted padding, finalized styling.",
     "history": [
         {
             "version": "1.0.0",
@@ -31,6 +31,11 @@
             "version": "1.2.1",
             "date": "2025-11-30",
             "changes": "Codebase refactored: Removed debug comments and optimized imports."
+        },
+        {
+            "version": "1.2.2",
+            "date": "2025-11-30",
+            "changes": "UI Polish: Removed debug banner, adjusted padding, finalized styling."
         }
     ]
 }
