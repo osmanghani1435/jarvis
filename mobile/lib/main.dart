@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'core_logic.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +29,48 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final CoreLogic _logic = CoreLogic();
+  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _apiKeyController = TextEditingController();
+  String _response = "App Loaded. Ready for Logic.";
+  bool _isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkApiKey();
+  }
+
+  Future<void> _checkApiKey() async {
+    final key = await _logic.getApiKey();
+    if (key != null) {
+      _apiKeyController.text = key;
+    }
+  }
+
+  Future<void> _saveApiKey() async {
+    await _logic.saveApiKey(_apiKeyController.text);
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('API Key Saved')),
+    );
+  }
+
+  Future<void> _sendMessage() async {
+    if (_controller.text.isEmpty) return;
+
+    setState(() {
+      _isLoading = true;
+      _response = "Thinking...";
+    });
+
+    final result = await _logic.processUserMessage(_controller.text);
+
+    setState(() {
+      _response = result;
+      _isLoading = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +78,38 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Jarves Pro'),
         actions: [
           IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('Settings'),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      TextField(
+                        controller: _apiKeyController,
+                        decoration: const InputDecoration(labelText: 'Gemini API Key'),
+                        obscureText: true,
+                      ),
+                    ],
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        _saveApiKey();
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Save'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.info_outline),
             onPressed: () {
-              // TODO: Navigate to Version History
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Version History coming soon')),
               );
@@ -45,10 +117,39 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: const Center(
-        child: Text(
-          'App Loaded. Ready for Logic.',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Text(
+                  _response,
+                  style: const TextStyle(fontSize: 16),
+                ),
+              ),
+            ),
+            if (_isLoading) const LinearProgressIndicator(),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: _controller,
+                    decoration: const InputDecoration(
+                      hintText: 'Ask Jarvis...',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                IconButton(
+                  icon: const Icon(Icons.send),
+                  onPressed: _isLoading ? null : _sendMessage,
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

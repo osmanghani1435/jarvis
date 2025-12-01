@@ -1,6 +1,6 @@
 {
-    "current_version": "1.0.2",
-    "last_update": "Created Main UI Skeleton and Home Page.",
+    "current_version": "1.1.0",
+    "last_update": "Ported Core Logic from Web to Android.",
     "history": [
         {
             "version": "1.0.0",
@@ -16,6 +16,11 @@
             "version": "1.0.2",
             "date": "2025-11-30",
             "changes": "Created Main UI Skeleton and Home Page."
+        },
+        {
+            "version": "1.1.0",
+            "date": "2025-11-30",
+            "changes": "Ported Core Logic from Web to Android."
         }
     ]
 }
