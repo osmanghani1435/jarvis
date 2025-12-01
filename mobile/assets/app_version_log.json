@@ -1,11 +1,16 @@
 {
-    "current_version": "1.0.0 (Stable)",
-    "last_update": "Official Release. All AI footprints removed. Core logic and Version History fully integrated.",
+    "current_version": "1.0.1 (Docs)",
+    "last_update": "Added official documentation (README).",
     "history": [
         {
             "version": "1.0.0",
             "date": "2025-11-30",
             "changes": "Official Release. All AI footprints removed. Core logic and Version History fully integrated."
+        },
+        {
+            "version": "1.0.1",
+            "date": "2025-11-30",
+            "changes": "Added official documentation (README)."
         }
     ]
 }
