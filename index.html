@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JARVIS AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              jarvis: {
+                bg: '#0a0a0f',
+                bgSec: '#12121a',
+                accent: '#00d4ff', // Cyan
+                accentSec: '#7b68ee', // Purple
+                text: '#ffffff',
+                textSec: '#a0a0a0',
+                success: '#00ff88',
+                warning: '#ffaa00',
+                error: '#ff4757',
+                panel: '#1a1a2e',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'Roboto', 'sans-serif'],
+              mono: ['Fira Code', 'Roboto Mono', 'monospace'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+              'heartbeat-cyan': 'heartbeat-cyan 2s infinite',
+              'heartbeat-purple': 'heartbeat-purple 2s infinite',
+              'heartbeat-red': 'heartbeat-red 2s infinite',
+              'heartbeat-green': 'heartbeat-green 2s infinite',
+              'reflection': 'reflection 0.8s ease-out forwards',
+            },
+            keyframes: {
+              glow: {
+                '0%': { boxShadow: '0 0 5px #00d4ff' },
+                '100%': { boxShadow: '0 0 20px #00d4ff, 0 0 10px #7b68ee' },
+              },
+              'heartbeat-cyan': {
+                '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(0, 212, 255, 0.7)' },
+                '70%': { transform: 'scale(1.02)', boxShadow: '0 0 15px 10px rgba(0, 212, 255, 0)' },
+                '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(0, 212, 255, 0)' },
+              },
+              'heartbeat-purple': {
+                '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(123, 104, 238, 0.7)' },
+                '70%': { transform: 'scale(1.02)', boxShadow: '0 0 15px 10px rgba(123, 104, 238, 0)' },
+                '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(123, 104, 238, 0)' },
+              },
+              'heartbeat-red': {
+                '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(255, 71, 87, 0.7)' },
+                '70%': { transform: 'scale(1.02)', boxShadow: '0 0 15px 10px rgba(255, 71, 87, 0)' },
+                '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(255, 71, 87, 0)' },
+              },
+              'heartbeat-green': {
+                '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(0, 255, 136, 0.7)' },
+                '70%': { transform: 'scale(1.02)', boxShadow: '0 0 15px 10px rgba(0, 255, 136, 0)' },
+                '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(0, 255, 136, 0)' },
+              },
+              reflection: {
+                 '0%': { opacity: '0.6', transform: 'translateX(-100%) skewX(-20deg)' },
+                 '100%': { opacity: '0', transform: 'translateX(200%) skewX(-20deg)' }
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #0a0a0f;
+        color: #ffffff;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #12121a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1a1a2e;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #00d4ff;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.6.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "arves final pro best the one i like ",
+  "description": "A sophisticated personal assistant featuring multi-agent AI architecture, task management, and memory systems.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
